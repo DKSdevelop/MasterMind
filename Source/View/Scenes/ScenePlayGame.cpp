@@ -9,59 +9,59 @@ ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 		m_rowOfColours(4,-1)
 {
 	///CHOSE MAIN GRILL
-	m_mainGrill.setSize(sf::Vector2f(baseWidth, baseHigh));
+	m_mainGrill.setSize(sf::Vector2f(static_cast<float>(baseWidth), static_cast<float>(baseHigh)));
 	m_mainGrill.setFillColor(sf::Color::Black);
-	m_mainGrill.setOutlineThickness(baseThickness);
+	m_mainGrill.setOutlineThickness(static_cast<float>(baseThickness));
 	m_mainGrill.setOutlineColor(sf::Color::White);
-	m_mainGrill.setPosition(sf::Vector2f(basePositionX, basePositionY));
+	m_mainGrill.setPosition(sf::Vector2f(static_cast<float>(basePositionX), static_cast<float>(basePositionY)));
 
 	for (int i = 0; i < m_numOfRows; ++i)
 	{
 		for (int j = 0; j < 4; ++j)
 		{
-			int x = m_mainGrill.getGlobalBounds().left + (j * m_mainGrill.getSize().x / 4);
-			int y = m_mainGrill.getGlobalBounds().top + (i * m_mainGrill.getSize().y / m_numOfRows);
+			float x = m_mainGrill.getGlobalBounds().left + (j * m_mainGrill.getSize().x / 4);
+			float y = m_mainGrill.getGlobalBounds().top + (i * m_mainGrill.getSize().y / m_numOfRows);
 
-			m_mainPlaces[i].push_back(sf::Vector2i(x,y));
+			m_mainPlaces[i].push_back(sf::Vector2f(x,y));
 		}
 	}
 	///
 	///CHOSE SCORED GRILL
-	m_scoreGrill.setSize(sf::Vector2f(baseWidth / 4, baseHigh));
+	m_scoreGrill.setSize(sf::Vector2f(static_cast<float>(baseWidth / 4), static_cast<float>(baseHigh)));
 	m_scoreGrill.setFillColor(sf::Color::Black);
-	m_scoreGrill.setOutlineThickness(baseThickness);
+	m_scoreGrill.setOutlineThickness(static_cast<float>(baseThickness));
 	m_scoreGrill.setOutlineColor(sf::Color::White);
-	m_scoreGrill.setPosition(sf::Vector2f(basePositionX + baseWidth + 10, basePositionY));
+	m_scoreGrill.setPosition(sf::Vector2f(static_cast<float>(basePositionX + baseWidth + 10), static_cast<float>(basePositionY)));
 
 	for (int i = 0; i < m_numOfRows; ++i)
 	{
 		int index = i * 2;
 		for (int j = 0; j < 2; ++j)
 		{
-			int x = m_scoreGrill.getGlobalBounds().left + (j * m_scoreGrill.getSize().x / 2) + baseThickness;
-			int y = m_scoreGrill.getGlobalBounds().top + (index * m_scoreGrill.getSize().y / (m_numOfRows*2)) + baseThickness;
-			m_scorePlaces[i].push_back(sf::Vector2i(x, y));
+			float x = m_scoreGrill.getGlobalBounds().left + (j * m_scoreGrill.getSize().x / 2) + baseThickness;
+			float y = m_scoreGrill.getGlobalBounds().top + (index * m_scoreGrill.getSize().y / (m_numOfRows*2)) + baseThickness;
+			m_scorePlaces[i].push_back(sf::Vector2f(x, y));
 		}
 		for (int j = 0; j < 2; ++j)
 		{
-			int x = m_scoreGrill.getGlobalBounds().left + (j * m_scoreGrill.getSize().x / 2) + baseThickness;
-			int y = m_scoreGrill.getGlobalBounds().top + ((index +1) * m_scoreGrill.getSize().y / (m_numOfRows * 2)) + baseThickness;
-			m_scorePlaces[i].push_back(sf::Vector2i(x, y));
+			float x = m_scoreGrill.getGlobalBounds().left + (j * m_scoreGrill.getSize().x / 2) + baseThickness;
+			float y = m_scoreGrill.getGlobalBounds().top + ((index +1) * m_scoreGrill.getSize().y / (m_numOfRows * 2)) + baseThickness;
+			m_scorePlaces[i].push_back(sf::Vector2f(x, y));
 		}
 	}
 	///
 	///CHOSE COLOUR GRILL
-	m_choseGrill.setSize(sf::Vector2f(baseWidth + baseWidth / 2, baseHigh / m_numOfRows));
+	m_choseGrill.setSize(sf::Vector2f(static_cast<float>(baseWidth + baseWidth / 2), static_cast<float>(baseHigh / m_numOfRows)));
 	m_choseGrill.setFillColor(sf::Color::Black);
-	m_choseGrill.setOutlineThickness(baseThickness);
+	m_choseGrill.setOutlineThickness(static_cast<float>(baseThickness));
 	m_choseGrill.setOutlineColor(sf::Color::White);
-	m_choseGrill.setPosition(sf::Vector2f(basePositionX, basePositionY + baseHigh + 25));
+	m_choseGrill.setPosition(sf::Vector2f(static_cast<float>(basePositionX), static_cast<float>(basePositionY + baseHigh + 25)));
 	///CHOSE COLOUR GRILL (coords of places)
 	for (int i = 0; i < 6; ++i)
 	{
-		int x = m_choseGrill.getGlobalBounds().left + (i * m_choseGrill.getSize().x / 6);
-		int y = basePositionY + baseHigh + 25;
-		m_colorsToChoosePlaces.push_back({ x, y, (int)(x + m_choseGrill.getSize().x / 6), (int)(y + m_choseGrill.getSize().x / 6) });
+		float x = m_choseGrill.getGlobalBounds().left + (i * m_choseGrill.getSize().x / 6);
+		float y = static_cast<float>(basePositionY + baseHigh + 25);
+		m_colorsToChoosePlaces.push_back({ x, y, x + m_choseGrill.getSize().x / 6, y + m_choseGrill.getSize().x / 6 });
 	}
 	///BUTTON
 	float buttonWidth = m_choseGrill.getSize().x / 3;
@@ -93,8 +93,8 @@ ScenePlayGame::~ScenePlayGame()
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::setSelectedColour(int x_pos)
 {
-	int xPosOnGrill = x_pos - m_choseGrill.getGlobalBounds().left;
-	int sizeOfOnePlace = m_choseGrill.getGlobalBounds().width / 6;
+	int xPosOnGrill = static_cast<int>(x_pos - m_choseGrill.getGlobalBounds().left);
+	int sizeOfOnePlace = static_cast<int>(m_choseGrill.getGlobalBounds().width / 6);
 	int returnedColour = xPosOnGrill / sizeOfOnePlace;
 	m_selectedColour = returnedColour;
 }
@@ -103,16 +103,16 @@ void ScenePlayGame::setSelectedPosition(int x_pos, int y_pos)
 {
 	sf::Vector2i returnedVal;
 
-	int yPosOnGrill = y_pos - m_mainGrill.getGlobalBounds().top;
-	returnedVal.y = yPosOnGrill / (m_mainGrill.getGlobalBounds().height / 12);
+	int yPosOnGrill = static_cast<int>(y_pos - m_mainGrill.getGlobalBounds().top);
+	returnedVal.y = static_cast<int>(yPosOnGrill / (m_mainGrill.getGlobalBounds().height / 12));
 	if (returnedVal.y != m_gameModelPtr->getGameBoard().getCurrentRow())
 	{
 		m_selectedPlace = sf::Vector2i(-1, -1);
 	}
 	else
 	{
-		int xPosOnGrill = x_pos - m_mainGrill.getGlobalBounds().left;
-		returnedVal.x = xPosOnGrill / (m_mainGrill.getGlobalBounds().width / 4);
+		int xPosOnGrill = static_cast<int>(x_pos - m_mainGrill.getGlobalBounds().left);
+		returnedVal.x = static_cast<int>(xPosOnGrill / (m_mainGrill.getGlobalBounds().width / 4));
 
 		m_selectedPlace = returnedVal;
 	}
@@ -195,15 +195,15 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 
 	for (int i = 1; i < m_numOfRows; ++i)
 	{
-		sf::RectangleShape line(sf::Vector2f(baseWidth, baseThickness));
-		line.setPosition(sf::Vector2f(basePositionX, m_mainGrill.getGlobalBounds().top + (i * m_mainGrill.getSize().y / m_numOfRows)));
+		sf::RectangleShape line(sf::Vector2f(static_cast<float>(baseWidth), static_cast<float>(baseThickness)));
+		line.setPosition(sf::Vector2f(static_cast<float>(basePositionX), static_cast<float>(m_mainGrill.getGlobalBounds().top + (i * m_mainGrill.getSize().y / m_numOfRows))));
 		target.draw(line, states);
 	}
 
 	for (int i = 1; i < 4; ++i)
 	{
-		sf::RectangleShape line(sf::Vector2f(baseThickness, baseHigh));
-		line.setPosition(sf::Vector2f(m_mainGrill.getGlobalBounds().left + (i * m_mainGrill.getSize().x / 4), basePositionY));
+		sf::RectangleShape line(sf::Vector2f(static_cast<float>(baseThickness), static_cast<float>(baseHigh)));
+		line.setPosition(sf::Vector2f(static_cast<float>(m_mainGrill.getGlobalBounds().left + (i * m_mainGrill.getSize().x / 4)), static_cast<float>(basePositionY)));
 		target.draw(line, states);
 	}
 
@@ -211,15 +211,15 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 
 	for (int i = 1; i < (m_numOfRows * 2); ++i)
 	{
-		sf::RectangleShape line(sf::Vector2f(baseWidth / 4, baseThickness));
-		line.setPosition(sf::Vector2f(basePositionX + baseWidth + 10, m_scoreGrill.getGlobalBounds().top + (i * m_scoreGrill.getSize().y / (m_numOfRows * 2))));
+		sf::RectangleShape line(sf::Vector2f(static_cast<float>(baseWidth / 4), static_cast<float>(baseThickness)));
+		line.setPosition(sf::Vector2f(static_cast<float>(basePositionX + baseWidth + 10), static_cast<float>(m_scoreGrill.getGlobalBounds().top + (i * m_scoreGrill.getSize().y / (m_numOfRows * 2)))));
 		target.draw(line, states);
 	}
 
 	for (int i = 1; i < 2; ++i)
 	{
-		sf::RectangleShape line(sf::Vector2f(baseThickness, baseHigh));
-		line.setPosition(sf::Vector2f(m_scoreGrill.getGlobalBounds().left + (i * m_scoreGrill.getSize().x / 2), basePositionY));
+		sf::RectangleShape line(sf::Vector2f(static_cast<float>(baseThickness), static_cast<float>(baseHigh)));
+		line.setPosition(sf::Vector2f(static_cast<float>(m_scoreGrill.getGlobalBounds().left + (i * m_scoreGrill.getSize().x / 2)), static_cast<float>(basePositionY)));
 		target.draw(line, states);
 	}
 
@@ -232,11 +232,11 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 		float y = (float)(pos.begin_y);
 
 
-		sf::RectangleShape line(sf::Vector2f(baseThickness, baseWidth / 4));
+		sf::RectangleShape line(sf::Vector2f(static_cast<float>(baseThickness), static_cast<float>(baseWidth / 4)));
 		line.setPosition(sf::Vector2f(x, y));
 		target.draw(line, states);
 
-		sf::CircleShape coloredPeg(baseR);
+		sf::CircleShape coloredPeg(static_cast<float>(baseR));
 		coloredPeg.setFillColor(_playColors.at(i++));
 		coloredPeg.setOrigin(0.f, 0.f);
 		coloredPeg.setPosition(sf::Vector2f(x + baseR / 4, y + baseR / 4));
@@ -246,7 +246,7 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 	sf::RectangleShape colourMarker;
 	colourMarker.setSize(sf::Vector2f(m_choseGrill.getSize().x / 6, m_choseGrill.getSize().y));
 	colourMarker.setFillColor(sf::Color::Transparent);
-	colourMarker.setOutlineThickness(baseThickness + 1);
+	colourMarker.setOutlineThickness(static_cast<float>(baseThickness + 1));
 	colourMarker.setOutlineColor(sf::Color::Yellow);
 	float markerPositionX = m_colorsToChoosePlaces.at(m_selectedColour).begin_x;
 	float markerPositionY = m_colorsToChoosePlaces.at(m_selectedColour).begin_y;
@@ -265,7 +265,7 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 			int colornumber = ball.getPegColor();
 			if(colornumber <= 5)
 			{
-				sf::CircleShape coloredPeg(baseR);
+				sf::CircleShape coloredPeg(static_cast<float>(baseR));
 				coloredPeg.setFillColor(_playColors.at(colornumber));
 				coloredPeg.setOrigin(0.f, 0.f);
 
@@ -302,23 +302,23 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 	}
 	//printing marker
 	sf::RectangleShape marker;
-	marker.setSize(sf::Vector2f(baseWidth, baseHigh/12));
+	marker.setSize(sf::Vector2f(static_cast<float>(baseWidth), static_cast<float>(baseHigh/12)));
 	marker.setFillColor(sf::Color::Transparent);
-	marker.setOutlineThickness(baseThickness + 1);
+	marker.setOutlineThickness(static_cast<float>(baseThickness + 1));
 	marker.setOutlineColor(sf::Color::Yellow);
-	int positionX = m_mainPlaces.at(m_gameModelPtr->getGameBoard().getCurrentRow()).at(0).x;
-	int positionY = m_mainPlaces.at(m_gameModelPtr->getGameBoard().getCurrentRow()).at(0).y;
+	float positionX = m_mainPlaces.at(m_gameModelPtr->getGameBoard().getCurrentRow()).at(0).x;
+	float positionY = m_mainPlaces.at(m_gameModelPtr->getGameBoard().getCurrentRow()).at(0).y;
 	marker.setPosition(sf::Vector2f(positionX, positionY));
 
 	target.draw(marker, states);
 
 	//printing current row with balls
-	for(int i = 0; i < m_rowOfColours.size(); ++i)
+	for(unsigned i = 0; i < m_rowOfColours.size(); ++i)
 	{
 		int ball = m_rowOfColours.at(i);
 		if (ball != -1)
 		{
-			sf::CircleShape coloredPeg(baseR);
+			sf::CircleShape coloredPeg(static_cast<float>(baseR));
 			coloredPeg.setFillColor(_playColors.at(ball));
 			coloredPeg.setOrigin(0.f, 0.f);
 

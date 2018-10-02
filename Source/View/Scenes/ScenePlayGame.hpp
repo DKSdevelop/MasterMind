@@ -7,10 +7,10 @@
 
 struct RectanglePlace
 {
-	int begin_x;
-	int begin_y;
-	int end_x;
-	int end_y;
+	float begin_x;
+	float begin_y;
+	float end_x;
+	float end_y;
 };
 
 class ScenePlayGame : public DrawableGroup
@@ -23,8 +23,8 @@ private:
 	int m_selectedColour;
 	std::vector<int> m_rowOfColours;
 
-	std::map<int, std::vector<sf::Vector2i>> m_mainPlaces;
-	std::map<int, std::vector<sf::Vector2i>> m_scorePlaces;
+	std::map<int, std::vector<sf::Vector2f>> m_mainPlaces;
+	std::map<int, std::vector<sf::Vector2f>> m_scorePlaces;
 
 	std::vector<RectanglePlace> m_colorsToChoosePlaces;
 
