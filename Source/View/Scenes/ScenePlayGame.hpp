@@ -54,7 +54,7 @@ private:
 	sf::Text m_buttonText;
 
 	std::map<int, std::vector<sf::Vector2f>> m_mainPlaces;
-	//std::map<int, std::vector<sf::Vector2f>> m_scorePlaces;
+
 	std::vector<RectanglePlace> m_colorsToChoosePlaces;
 
 	std::vector<sf::CircleShape> m_coloursBalls;
