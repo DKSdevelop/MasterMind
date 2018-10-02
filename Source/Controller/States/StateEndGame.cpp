@@ -15,7 +15,7 @@ StateEndGame::~StateEndGame()
 {
 }
 
-void StateEndGame::draw(const float dt)
+void StateEndGame::draw()
 {
 	this->m_gameControllerPtr->m_window.clear(sf::Color::Black);
 
@@ -24,7 +24,7 @@ void StateEndGame::draw(const float dt)
 	return;
 }
 
-void StateEndGame::update(const float dt)
+void StateEndGame::update()
 {
 }
 

@@ -7,14 +7,14 @@
  */
 GameModel::GameModel(int rowCount, int pegsInRow) : m_rowCount(rowCount), m_pegsInRow(pegsInRow), m_gameBoard(m_rowCount, m_pegsInRow)
 {
-	//m_state  = MAIN_MENU;
 	srand (time(NULL));
 }
 
 /*
  * Returns the associated Game Board Object
  */
-Board & GameModel::getGameBoard() {
+Board & GameModel::getGameBoard()
+{
 	return m_gameBoard;
 }
 
@@ -26,7 +26,7 @@ Board & GameModel::getGameBoard() {
 void GameModel::startGame()
 {
 	m_gameBoard = Board(m_rowCount, m_pegsInRow);
-	//setState(GAME_IN_PROGRESS);
+
 	m_gameBoard.addPegInShield(Peg((PegColor)(rand() % 6), CODE), 0);
 	m_gameBoard.addPegInShield(Peg((PegColor)(rand() % 6), CODE), 1);
 	m_gameBoard.addPegInShield(Peg((PegColor)(rand() % 6), CODE), 2);
@@ -39,34 +39,18 @@ void GameModel::startGame()
  * state has changed.
  *
  */
-void GameModel::initGame() {
-	//m_state = MAIN_MENU;
+void GameModel::initGame()
+{
+
 	notifyAllObservers();
 }
-
-/*
- * This function returns the current state of the Game
- *
- */
-/*GameState GameModel::getState() const {
-	return m_state;
-}*/
-
-/*
- * This function sets the state and notify all observers
- * that state of subject had been changed
- *
- */
-/*void GameModel::setState(GameState state) {
-	m_state = state;
-	notifyAllObservers();
-}*/
 
 /*
  * This function returns the count of Code/Key Pegs in a row
  *
  */
-int GameModel::getPegsInRow() const {
+int GameModel::getPegsInRow() const
+{
 	return m_pegsInRow;
 }
 
@@ -75,7 +59,8 @@ int GameModel::getPegsInRow() const {
  * for the game.
  *
  */
-int GameModel::getRowCount() const {
+int GameModel::getRowCount() const
+{
 	return m_rowCount;
 }
 

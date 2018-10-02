@@ -18,6 +18,7 @@ void GameController::initialize()
 		this->m_window.create(sf::VideoMode(1000, 900), "Master Mind");
 	}
 	m_window.clear();
+
 	// Create Game Model
 	if (m_gameModelPtr)
 	{
@@ -77,25 +78,18 @@ void GameController::playAgain(std::shared_ptr<StateHandler> state)
 
 void GameController::gameLoop()
 {
-	//sf::Clock clock;
-
 	while (this->m_window.isOpen())
 	{
-		//sf::Time elapsed = clock.restart();
-		//float dt = elapsed.asSeconds();
-
 		if (peekState() == nullptr)
 		{
 			continue;
 		}
 
 		peekState()->handleInput();
-		//peekState()->update(dt);
 
 		this->m_window.clear(sf::Color::Black);
-		float dt = 0;
-		peekState()->draw(dt);
-		//this->m_window.draw(*peekState()->getDrawableObject());
+
+		peekState()->draw();
 		 
 		this->m_window.display();
 	}
@@ -109,10 +103,7 @@ bool GameController::checkSelectedColours(std::vector<int>& rowOfColours)
 		PegColor p_color = static_cast<PegColor>(rowOfColours.at(k));
 		Peg peg = Peg(p_color, CODE);
 
-		if (m_gameModelPtr->getGameBoard().addCodePegInRow(rowIndex, peg, k))
-		{
-			//return true;
-		}
+		m_gameModelPtr->getGameBoard().addCodePegInRow(rowIndex, peg, k);
 	}
 
 	return checkResults();

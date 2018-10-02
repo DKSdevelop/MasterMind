@@ -32,13 +32,15 @@ PegRow::PegRow(int pegCount)
 /*
  * Returns the list of code pegs
  */
-std::vector<Peg> PegRow::getVecOfCodePegs() const {
+std::vector<Peg> PegRow::getVecOfCodePegs() const
+{
 	return m_vecOfCodePegs;
 }
 /*
  * Returns the list of key pegs
  */
-std::vector<Peg> PegRow::getVecOfKeyPegs() const {
+std::vector<Peg> PegRow::getVecOfKeyPegs() const
+{
 	return m_vecOfKeyPegs;
 }
 /*
@@ -146,12 +148,14 @@ bool PegRow::updateKeyPegs(std::vector<Peg> vecOfShieldPegs, int index)
 /*
  * Check if current Row is filled or not
  */
-bool PegRow::isFilled() const {
+bool PegRow::isFilled() const
+{
 	return m_isFilled;
 }
 /*
  * Mark the row as filled
  */
-void PegRow::setIsFilled(bool isFilled) {
+void PegRow::setIsFilled(bool isFilled)
+{
 	m_isFilled = isFilled;
 }

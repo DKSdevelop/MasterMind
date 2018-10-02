@@ -6,16 +6,16 @@
 
 class StateMainManu: public StateHandler
 {
-public:
-	StateMainManu(std::shared_ptr<GameController> gameController);
-	~StateMainManu();
 private:
 	std::shared_ptr<SceneMainMenu> m_scenePtr;
 	///Draw function
-	void draw(const float dt);
+	void draw();
 	///Update function
-	void update(const float dt);
+	void update();
 	///Handleinput function
 	void handleInput();
+public:
+	StateMainManu(std::shared_ptr<GameController> gameController);
+	~StateMainManu();
 };
 

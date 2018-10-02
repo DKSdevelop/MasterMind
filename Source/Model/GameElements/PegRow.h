@@ -12,7 +12,9 @@
 #include <vector>
 #include <memory>
 
-class PegRow {
+class PegRow
+{
+private:
 	std::vector<Peg> m_vecOfCodePegs;
 	std::vector<Peg> m_vecOfKeyPegs;
 

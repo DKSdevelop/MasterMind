@@ -14,6 +14,7 @@
 
 class Board
 {
+private:
 	std::vector<PegRow > m_vecOfPegRows;
 	std::vector<Peg> m_vecOfPegsInShield;
 	int m_RowCount;

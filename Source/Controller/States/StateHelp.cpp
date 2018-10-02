@@ -13,7 +13,7 @@ StateHelp::~StateHelp()
 {
 }
 
-void StateHelp::draw(const float dt)
+void StateHelp::draw()
 {
 	this->m_gameControllerPtr->m_window.clear(sf::Color::Black);
 
@@ -22,7 +22,7 @@ void StateHelp::draw(const float dt)
 	return;
 }
 
-void StateHelp::update(const float dt)
+void StateHelp::update()
 {
 }
 

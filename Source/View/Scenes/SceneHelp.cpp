@@ -5,8 +5,6 @@
 SceneHelp::SceneHelp(std::shared_ptr<GameModel> gameModel)
 	: m_gameModelPtr(gameModel)
 {
-	//m_font.loadFromFile("Gobold Blocky Regular.otf");
-
 	m_width = 1000 / 4;
 	m_hight = 900 / 8;
 }

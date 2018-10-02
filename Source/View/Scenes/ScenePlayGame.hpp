@@ -15,28 +15,6 @@ struct RectanglePlace
 
 class ScenePlayGame : public DrawableGroup
 {
-public:
-	ScenePlayGame(std::shared_ptr<GameModel> gameModel);
-	~ScenePlayGame();
-
-	void setSelectedColour(int x_pos);
-	void setSelectedPosition(int x_pos, int y_pos);
-
-	bool isMainGrill(int x_pos, int y_pos);
-	bool isScoreGrill(int x_pos, int y_pos);///unnessecery?
-	bool isColourGrill(int x_pos, int y_pos);
-	bool isButtonClicked(int x_pos, int y_pos);
-
-	bool isPlaceSelected();
-	//bool isColourSelected();
-	void chnageSelectedColour(int x_pos);
-	bool isRowOfColoursFilled();
-
-	void clearPlaceAndColours();
-	void clearRowOfColours();
-
-	void pushColourToRow();
-	std::vector<int> getRowOfColour();
 private:
 	std::shared_ptr<GameModel> m_gameModelPtr;
 
@@ -73,9 +51,28 @@ private:
 	sf::RectangleShape m_choseGrill;
 
 	sf::RectangleShape m_checkButton;
-	//sf::Font m_font;
 	sf::Text buttonText;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+public:
+	ScenePlayGame(std::shared_ptr<GameModel> gameModel);
+	~ScenePlayGame();
+
+	void setSelectedColour(int x_pos);
+	void setSelectedPosition(int x_pos, int y_pos);
+
+	bool isMainGrill(int x_pos, int y_pos);
+	bool isColourGrill(int x_pos, int y_pos);
+	bool isButtonClicked(int x_pos, int y_pos);
+
+	bool isPlaceSelected();
+	void chnageSelectedColour(int x_pos);
+	bool isRowOfColoursFilled();
+
+	void clearPlaceAndColours();
+	void clearRowOfColours();
+
+	void pushColourToRow();
+	std::vector<int> getRowOfColour();
 };
 

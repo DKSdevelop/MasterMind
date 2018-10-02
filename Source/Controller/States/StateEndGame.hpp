@@ -6,16 +6,16 @@
 
 class StateEndGame : public StateHandler
 {
-public:
-	StateEndGame(std::shared_ptr<GameController> gameController);
-	~StateEndGame();
 private:
 	std::shared_ptr<SceneEndGame> m_scenePtr;
 	///Draw function
-	void draw(const float dt);
+	void draw();
 	///Update function
-	void update(const float dt);
+	void update();
 	///Handleinput function
 	void handleInput();
+public:
+	StateEndGame(std::shared_ptr<GameController> gameController);
+	~StateEndGame();
 };
 

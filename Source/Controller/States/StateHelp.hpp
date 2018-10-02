@@ -7,17 +7,16 @@
 
 class StateHelp: public StateHandler
 {
-public:
-	StateHelp(std::shared_ptr<GameController> gameController);
-	~StateHelp();
-
 private:
 	std::shared_ptr<SceneHelp> m_scenePtr;
 	///Draw function
-	void draw(const float dt);
+	void draw();
 	///Update function
-	void update(const float dt);
+	void update();
 	///Handleinput function
 	void handleInput();
+public:
+	StateHelp(std::shared_ptr<GameController> gameController);
+	~StateHelp();
 };
 

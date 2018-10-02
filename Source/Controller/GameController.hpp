@@ -32,6 +32,9 @@ public:
 	///Main window
 	sf::RenderWindow m_window;
 
+	GameController();
+	~GameController();
+
 	///Push another State to Stack
 	void pushState(std::shared_ptr<StateHandler> state);
 	///Pop up State from Stack
@@ -51,7 +54,4 @@ public:
 	bool checkResults();
 
 	bool isGameWon();
-
-	GameController();
-	~GameController();
 };

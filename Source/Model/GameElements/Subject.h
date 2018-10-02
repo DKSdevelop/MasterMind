@@ -13,7 +13,9 @@
 
  using namespace std::placeholders;
 
-class Subject {
+class Subject
+{
+private:
 	 std::vector< std::shared_ptr<Observer> > m_ListOfObservers;
 public:
 	Subject(){}

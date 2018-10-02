@@ -15,7 +15,7 @@ StateMainManu::~StateMainManu()
 
 }
 
-void StateMainManu::draw(const float dt)
+void StateMainManu::draw()
 {
 	this->m_gameControllerPtr->m_window.clear(sf::Color::Black);
 
@@ -24,7 +24,7 @@ void StateMainManu::draw(const float dt)
 	return;
 }
 
-void StateMainManu::update(const float dt)
+void StateMainManu::update()
 {
 }
 

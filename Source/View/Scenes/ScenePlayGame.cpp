@@ -21,9 +21,8 @@ ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 		for (int j = 0; j < 4; ++j)
 		{
 			int x = m_mainGrill.getGlobalBounds().left + (j * m_mainGrill.getSize().x / 4);
-			//int x = m_mainGrill.getGlobalBounds().left;
 			int y = m_mainGrill.getGlobalBounds().top + (i * m_mainGrill.getSize().y / m_numOfRows);
-			//m_mainPlaces.push_back({ x, y, (int)(x + m_mainGrill.getSize().x / 4), (int)(y + m_mainGrill.getSize().y / m_numOfRows) });
+
 			m_mainPlaces[i].push_back(sf::Vector2i(x,y));
 		}
 	}
@@ -76,7 +75,6 @@ ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 	m_checkButton.setFillColor(sf::Color(89, 89, 89));
 	m_checkButton.setPosition(sf::Vector2f(m_choseGrill.getGlobalBounds().left + m_choseGrill.getGlobalBounds().width + 10, m_choseGrill.getGlobalBounds().top));
 
-	//m_font.loadFromFile("Gobold Blocky Regular.otf");
 
 	buttonText.setFont(m_font);
 	buttonText.setCharacterSize(20);
@@ -134,23 +132,11 @@ bool ScenePlayGame::isMainGrill(int x_pos, int y_pos)
 	return false;
 }
 
-bool ScenePlayGame::isScoreGrill(int x_pos, int y_pos)
-{
-	if (x_pos >= m_scoreGrill.getGlobalBounds().left && x_pos <= m_scoreGrill.getGlobalBounds().left + m_scoreGrill.getGlobalBounds().width
-		&& y_pos >= m_scoreGrill.getGlobalBounds().top && y_pos <= m_scoreGrill.getGlobalBounds().top + m_scoreGrill.getGlobalBounds().height)
-	{
-		return true;
-	}
-
-	return false;
-}
-
 bool ScenePlayGame::isColourGrill(int x_pos, int y_pos)
 {
 	if (x_pos >= m_choseGrill.getGlobalBounds().left && x_pos <= m_choseGrill.getGlobalBounds().left + m_choseGrill.getGlobalBounds().width
 		&& y_pos >= m_choseGrill.getGlobalBounds().top && y_pos <= m_choseGrill.getGlobalBounds().top + m_choseGrill.getGlobalBounds().height)
 	{
-		//setSelectedColour(x_pos);
 		return true;
 	}
 
@@ -173,11 +159,6 @@ bool ScenePlayGame::isPlaceSelected()
 	return m_selectedPlace.x != -1 && m_selectedPlace.y != -1;
 }
 
-/*bool ScenePlayGame::isColourSelected()
-{
-	return m_selectedColour != -1;
-}*/
-
 void ScenePlayGame::chnageSelectedColour(int x_pos)
 {
 	setSelectedColour(x_pos);
@@ -193,8 +174,6 @@ void ScenePlayGame::clearPlaceAndColours()
 {
 	m_selectedPlace.x = -1;
 	m_selectedPlace.y = -1;
-
-	//m_selectedColour = -1;
 }
 
 void ScenePlayGame::clearRowOfColours()

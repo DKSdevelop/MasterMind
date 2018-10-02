@@ -51,14 +51,16 @@ bool Board::addPegInShield(Peg PegObj, int pegIndex)
 /*
  * Returns the Peg rows list
  */
-std::vector<PegRow > Board::getVecOfPegRows() const {
+std::vector<PegRow > Board::getVecOfPegRows() const
+{
 	return m_vecOfPegRows;
 }
 
 /*
  * Returns the list of Pegs in shield
  */
-std::vector<Peg> Board::getVecOfPegsInShield() const {
+std::vector<Peg> Board::getVecOfPegsInShield() const
+{
 	return m_vecOfPegsInShield;
 }
 

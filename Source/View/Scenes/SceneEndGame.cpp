@@ -91,18 +91,6 @@ void SceneEndGame::draw(sf::RenderTarget & target, sf::RenderStates states) cons
 
 	target.draw(m_buttonExit, states);
 	target.draw(textExit, states);
-	/*sf::Text endText;
-	endText.setFont(m_font);
-	endText.setCharacterSize(60);
-	endText.setFillColor(sf::Color::White);
-	endText.setString("End Game");
-
-	float endTextBegin_x = m_x + (m_width - endText.getLocalBounds().width) / 2;
-	float endTextBegin_y = m_y + (m_hight - endText.getLocalBounds().height) / 2;
-
-	endText.setPosition(endTextBegin_x, endTextBegin_y);
-
-	target.draw(endText, states);*/
 
 	sf::Text scoreText;
 	scoreText.setFont(m_font);

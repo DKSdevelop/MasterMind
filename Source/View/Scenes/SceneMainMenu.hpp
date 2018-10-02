@@ -5,14 +5,8 @@
 
 class SceneMainMenu : public DrawableGroup
 {
-public:
-	SceneMainMenu(std::shared_ptr<GameModel> gameModel);
-	~SceneMainMenu();
-
-	int checkWhichButton(int x_pos, int y_pos);
 private:
 	std::shared_ptr<GameModel> m_gameModelPtr;
-	//sf::Font m_font;
 
 	std::vector<std::string> m_options{
 		"Start Game",
@@ -29,5 +23,10 @@ private:
 	int m_separator;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+public:
+	SceneMainMenu(std::shared_ptr<GameModel> gameModel);
+	~SceneMainMenu();
+
+	int checkWhichButton(int x_pos, int y_pos);
 };
 

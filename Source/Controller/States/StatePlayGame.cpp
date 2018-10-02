@@ -1,7 +1,5 @@
 #include "StatePlayGame.hpp"
 
-//#include <iostream>
-
 StatePlayGame::StatePlayGame(std::shared_ptr<GameController> gameController)
 {
 	m_gameControllerPtr = gameController;
@@ -15,7 +13,7 @@ StatePlayGame::~StatePlayGame()
 {
 }
 
-void StatePlayGame::draw(const float dt)
+void StatePlayGame::draw()
 {
 	this->m_gameControllerPtr->m_window.clear(sf::Color::Black);
 
@@ -24,7 +22,7 @@ void StatePlayGame::draw(const float dt)
 	return;
 }
 
-void StatePlayGame::update(const float dt)
+void StatePlayGame::update()
 {
 }
 
@@ -44,7 +42,6 @@ void StatePlayGame::handleInput()
 					auto rowOfColours = m_scenePtr->getRowOfColour();
 					if (this->m_gameControllerPtr->checkSelectedColours(rowOfColours))
 					{
-						//set END_GAME state
 						this->m_gameControllerPtr->pushState(std::make_shared<StateEndGame>(this->m_gameControllerPtr));
 						break;
 					}
@@ -55,15 +52,10 @@ void StatePlayGame::handleInput()
 			else if (this->m_scenePtr->isColourGrill(cursorPosition.x, cursorPosition.y))
 			{
 				this->m_scenePtr->chnageSelectedColour(cursorPosition.x);
-				/*if (this->m_scenePtr->isPlaceSelected() && this->m_scenePtr->isColourSelected())
-				{
-					this->m_scenePtr->pushColourToRow();
-					this->m_scenePtr->clearPlaceAndColours();
-				}*/
 			}
 			else if (this->m_scenePtr->isMainGrill(cursorPosition.x, cursorPosition.y))
 			{
-				if (/*this->m_scenePtr->isColourSelected() && */this->m_scenePtr->isPlaceSelected())
+				if (this->m_scenePtr->isPlaceSelected())
 				{
 					this->m_scenePtr->pushColourToRow();
 					this->m_scenePtr->clearPlaceAndColours();

@@ -6,7 +6,8 @@
 #ifndef OBSERVER_H_
 #define OBSERVER_H_
 
-class Observer {
+class Observer
+{
 public:
 	Observer();
 	virtual ~Observer();

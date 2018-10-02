@@ -24,6 +24,7 @@ enum PegType
 
 class Peg
 {
+private:
 	PegColor m_PegColor;
 	PegType  m_PegType;
 public:
