@@ -1,7 +1,7 @@
 #include "SceneMainMenu.hpp"
 
 
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 SceneMainMenu::SceneMainMenu(std::shared_ptr<GameModel> gameModel)
 	: m_gameModelPtr(gameModel)
 {
@@ -16,11 +16,11 @@ SceneMainMenu::SceneMainMenu(std::shared_ptr<GameModel> gameModel)
 		m_coords.push_back(sf::Vector2i(m_x, m_y + i * (m_hight + m_separator)));
 	}
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 SceneMainMenu::~SceneMainMenu()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 int SceneMainMenu::checkWhichButton(int x_pos, int y_pos)
 {
 	for (int i = 0; i < 3; ++i)
@@ -33,7 +33,7 @@ int SceneMainMenu::checkWhichButton(int x_pos, int y_pos)
 	}
 	return 0;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void SceneMainMenu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	for (int i = 0; i < 3; ++i)
@@ -65,3 +65,4 @@ void SceneMainMenu::draw(sf::RenderTarget & target, sf::RenderStates states) con
 		target.draw(text, states);
 	}
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

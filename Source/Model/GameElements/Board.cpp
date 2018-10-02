@@ -1,5 +1,6 @@
 #include "Board.h"
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Constructor
  * Initializes the code and key pegs
@@ -19,7 +20,7 @@ Board::Board(int rowCount, int pegsInRow)
 		m_vecOfPegsInShield.push_back(Peg(EMPTY, CODE));
 	}
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Provides the functionality to add the given Code Peg in the
  * specified Peg row.
@@ -34,6 +35,7 @@ bool Board::addCodePegInRow(int rowIndex, Peg & PegObj, int pegIndex)
 	}
 	return bResult;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Shield contains the Code Pegs that user has to identify.
  * This function provies the functionality to add Peg in shield
@@ -47,7 +49,7 @@ bool Board::addPegInShield(Peg PegObj, int pegIndex)
 	}
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Returns the Peg rows list
  */
@@ -55,7 +57,7 @@ std::vector<PegRow > Board::getVecOfPegRows() const
 {
 	return m_vecOfPegRows;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Returns the list of Pegs in shield
  */
@@ -63,12 +65,12 @@ std::vector<Peg> Board::getVecOfPegsInShield() const
 {
 	return m_vecOfPegsInShield;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 int Board::getCurrentRow()
 {
 	return m_currentRow;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool Board::incraseCurrentRow()
 {
 	m_currentRow++;
@@ -78,3 +80,4 @@ bool Board::incraseCurrentRow()
 	}
 	return false;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

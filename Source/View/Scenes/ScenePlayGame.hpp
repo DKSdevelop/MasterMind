@@ -16,6 +16,7 @@ struct RectanglePlace
 class ScenePlayGame : public DrawableGroup
 {
 private:
+//-----------------------------------------------------------------------------
 	std::shared_ptr<GameModel> m_gameModelPtr;
 
 	sf::Vector2i m_selectedPlace;
@@ -52,9 +53,12 @@ private:
 
 	sf::RectangleShape m_checkButton;
 	sf::Text buttonText;
-
+//-----------------------------------------------------------------------------
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 public:
+	//-----------------------------------------------------------------------------
 	ScenePlayGame(std::shared_ptr<GameModel> gameModel);
 	~ScenePlayGame();
 
@@ -74,5 +78,7 @@ public:
 
 	void pushColourToRow();
 	std::vector<int> getRowOfColour();
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 };
 

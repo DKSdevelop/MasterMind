@@ -12,26 +12,24 @@
 
 class StateHandler;
 
-enum StateName
-{
-	MAIN_MENU = 0,
-	GAME_IN_PROGRESS,
-	GAME_ENDED,
-	HELP_MODE,
-};
-
 class GameController
 {
 private:
+//-----------------------------------------------------------------------------
 	std::stack<std::shared_ptr<StateHandler>> states_;
+	///Is user win game or not
 	bool m_gameWon;
-
+//-----------------------------------------------------------------------------
+	///used to initialize game parameters start new game/play again
 	void initialize();
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 public:
+//-----------------------------------------------------------------------------
 	std::shared_ptr<GameModel> m_gameModelPtr;
 	///Main window
 	sf::RenderWindow m_window;
-
+//-----------------------------------------------------------------------------
 	GameController();
 	~GameController();
 
@@ -48,10 +46,12 @@ public:
 
 	///Main Game loop
 	void gameLoop();
-
-	bool checkSelectedColours(std::vector<int>& rowOfColours);
-
+	///Push selected by user balls to PegsRow
+	bool pushSelectedColours(std::vector<int>& rowOfColours);
+	///Check if selected by user balls are equal to keys
 	bool checkResults();
-
+	///Return if game won or not
 	bool isGameWon();
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 };

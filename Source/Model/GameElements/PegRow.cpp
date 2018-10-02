@@ -1,5 +1,6 @@
 #include "PegRow.h"
-//#include <iostream>
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Provides the functionality to add key peg in the row
  */
@@ -12,7 +13,7 @@ bool PegRow::addKeyPeg(Peg keyPeg, int index)
 	}
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Constructor
  * Initializes the Code Peg and Key Peg List
@@ -28,7 +29,7 @@ PegRow::PegRow(int pegCount)
 
 	m_isFilled = false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Returns the list of code pegs
  */
@@ -36,6 +37,7 @@ std::vector<Peg> PegRow::getVecOfCodePegs() const
 {
 	return m_vecOfCodePegs;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Returns the list of key pegs
  */
@@ -43,6 +45,7 @@ std::vector<Peg> PegRow::getVecOfKeyPegs() const
 {
 	return m_vecOfKeyPegs;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Provides the functionality to add Code Peg
  */
@@ -55,6 +58,7 @@ bool PegRow::addCodePeg(Peg codePeg, int index)
 	}
 	return false;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Checks if Code Peg and shield pegs are equal, by
  * checking if all Key pegs are Black.
@@ -73,6 +77,7 @@ bool PegRow::IsCodePegsAndKeyPegsAreEqual()
 	}
 	return (matchCount == m_pegsCount);
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Update key peg for specified index.
  * It checks Code Peg at index is of same color as code peg in shield for same
@@ -144,7 +149,7 @@ bool PegRow::updateKeyPegs(std::vector<Peg> vecOfShieldPegs, int index)
 	}
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Check if current Row is filled or not
  */
@@ -152,6 +157,7 @@ bool PegRow::isFilled() const
 {
 	return m_isFilled;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
  * Mark the row as filled
  */
@@ -159,3 +165,4 @@ void PegRow::setIsFilled(bool isFilled)
 {
 	m_isFilled = isFilled;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

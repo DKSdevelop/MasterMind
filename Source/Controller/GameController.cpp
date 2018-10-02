@@ -2,15 +2,16 @@
 
 #include "../Controller/States/StateHandler.hpp"
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 GameController::GameController()
 {
 	initialize();
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 GameController::~GameController()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::initialize()
 {
 	if (!m_window.isOpen())
@@ -31,21 +32,21 @@ void GameController::initialize()
 
 	m_gameWon = false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::pushState(std::shared_ptr<StateHandler> state)
 {
 	this->states_.push(state);
 
 	return;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::popState()
 {
 	this->states_.pop();
 
 	return;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::changeState(std::shared_ptr<StateHandler> state)
 {
 	if (!this->states_.empty())
@@ -56,7 +57,7 @@ void GameController::changeState(std::shared_ptr<StateHandler> state)
 
 	return;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 std::shared_ptr<StateHandler> GameController::peekState()
 {
 	if (this->states_.empty())
@@ -65,7 +66,7 @@ std::shared_ptr<StateHandler> GameController::peekState()
 	}
 	return this->states_.top();
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::playAgain(std::shared_ptr<StateHandler> state)
 {
 	while(!this->states_.empty())
@@ -75,7 +76,7 @@ void GameController::playAgain(std::shared_ptr<StateHandler> state)
 	initialize();
 	pushState(state);
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void GameController::gameLoop()
 {
 	while (this->m_window.isOpen())
@@ -94,7 +95,8 @@ void GameController::gameLoop()
 		this->m_window.display();
 	}
 }
-bool GameController::checkSelectedColours(std::vector<int>& rowOfColours)
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+bool GameController::pushSelectedColours(std::vector<int>& rowOfColours)
 {
 	int rowIndex = m_gameModelPtr->getGameBoard().getCurrentRow();
 
@@ -108,7 +110,7 @@ bool GameController::checkSelectedColours(std::vector<int>& rowOfColours)
 
 	return checkResults();
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool GameController::checkResults()
 {
 	PegRow row = m_gameModelPtr->getGameBoard().getVecOfPegRows().at(m_gameModelPtr->getGameBoard().getCurrentRow());
@@ -129,8 +131,9 @@ bool GameController::checkResults()
 
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool GameController::isGameWon()
 {
 	return m_gameWon;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,8 +1,7 @@
 #include "ScenePlayGame.hpp"
 
 
-
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 	:	m_gameModelPtr(gameModel),
 		m_selectedPlace(-1, -1),
@@ -86,13 +85,12 @@ ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 
 	buttonText.setPosition(textBegin_x, textBegin_y);
 	///
-	
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 ScenePlayGame::~ScenePlayGame()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::setSelectedColour(int x_pos)
 {
 	int xPosOnGrill = x_pos - m_choseGrill.getGlobalBounds().left;
@@ -100,7 +98,7 @@ void ScenePlayGame::setSelectedColour(int x_pos)
 	int returnedColour = xPosOnGrill / sizeOfOnePlace;
 	m_selectedColour = returnedColour;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::setSelectedPosition(int x_pos, int y_pos)
 {
 	sf::Vector2i returnedVal;
@@ -119,7 +117,7 @@ void ScenePlayGame::setSelectedPosition(int x_pos, int y_pos)
 		m_selectedPlace = returnedVal;
 	}
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool ScenePlayGame::isMainGrill(int x_pos, int y_pos)
 {
 	if (x_pos >= m_mainGrill.getGlobalBounds().left && x_pos <= m_mainGrill.getGlobalBounds().left + m_mainGrill.getGlobalBounds().width
@@ -131,7 +129,7 @@ bool ScenePlayGame::isMainGrill(int x_pos, int y_pos)
 		
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool ScenePlayGame::isColourGrill(int x_pos, int y_pos)
 {
 	if (x_pos >= m_choseGrill.getGlobalBounds().left && x_pos <= m_choseGrill.getGlobalBounds().left + m_choseGrill.getGlobalBounds().width
@@ -142,7 +140,7 @@ bool ScenePlayGame::isColourGrill(int x_pos, int y_pos)
 
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool ScenePlayGame::isButtonClicked(int x_pos, int y_pos)
 {
 	if (x_pos >= m_checkButton.getGlobalBounds().left && x_pos <= m_checkButton.getGlobalBounds().left + m_checkButton.getGlobalBounds().width
@@ -153,44 +151,44 @@ bool ScenePlayGame::isButtonClicked(int x_pos, int y_pos)
 
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool ScenePlayGame::isPlaceSelected()
 {
 	return m_selectedPlace.x != -1 && m_selectedPlace.y != -1;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::chnageSelectedColour(int x_pos)
 {
 	setSelectedColour(x_pos);
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool ScenePlayGame::isRowOfColoursFilled()
 {
 	auto result = std::find(std::begin(m_rowOfColours), std::end(m_rowOfColours), -1);
 	return result == m_rowOfColours.end();
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::clearPlaceAndColours()
 {
 	m_selectedPlace.x = -1;
 	m_selectedPlace.y = -1;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::clearRowOfColours()
 {
 	std::fill(m_rowOfColours.begin(), m_rowOfColours.end(), -1);
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::pushColourToRow()
 {
 	m_rowOfColours.at(m_selectedPlace.x) = m_selectedColour;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 std::vector<int> ScenePlayGame::getRowOfColour()
 {
 	return m_rowOfColours;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(m_mainGrill, states);
@@ -351,3 +349,4 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 		}
 	}*/
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

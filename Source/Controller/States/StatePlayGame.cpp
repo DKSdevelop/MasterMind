@@ -1,5 +1,6 @@
 #include "StatePlayGame.hpp"
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 StatePlayGame::StatePlayGame(std::shared_ptr<GameController> gameController)
 {
 	m_gameControllerPtr = gameController;
@@ -8,11 +9,11 @@ StatePlayGame::StatePlayGame(std::shared_ptr<GameController> gameController)
 
 	m_gameModelPtr->startGame();
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 StatePlayGame::~StatePlayGame()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void StatePlayGame::draw()
 {
 	this->m_gameControllerPtr->m_window.clear(sf::Color::Black);
@@ -21,11 +22,11 @@ void StatePlayGame::draw()
 
 	return;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void StatePlayGame::update()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void StatePlayGame::handleInput()
 {
 	sf::Event event;
@@ -40,7 +41,7 @@ void StatePlayGame::handleInput()
 				if (this->m_scenePtr->isRowOfColoursFilled())
 				{
 					auto rowOfColours = m_scenePtr->getRowOfColour();
-					if (this->m_gameControllerPtr->checkSelectedColours(rowOfColours))
+					if (this->m_gameControllerPtr->pushSelectedColours(rowOfColours))
 					{
 						this->m_gameControllerPtr->pushState(std::make_shared<StateEndGame>(this->m_gameControllerPtr));
 						break;
@@ -70,3 +71,4 @@ void StatePlayGame::handleInput()
 
 	return;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

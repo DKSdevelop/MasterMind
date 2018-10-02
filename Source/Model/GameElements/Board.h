@@ -15,12 +15,16 @@
 class Board
 {
 private:
+//-----------------------------------------------------------------------------
 	std::vector<PegRow > m_vecOfPegRows;
 	std::vector<Peg> m_vecOfPegsInShield;
 	int m_RowCount;
 	int m_PegsInARowCount;
 	int m_currentRow;
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 public:
+//-----------------------------------------------------------------------------
 	Board(int rowCount, int pegsInRow);
 	virtual ~Board(){}
 	bool addCodePegInRow(int rowIndex, Peg & PegObj, int pegIndex);
@@ -29,6 +33,8 @@ public:
 	std::vector<Peg> getVecOfPegsInShield() const;
 	int getCurrentRow();
 	bool incraseCurrentRow();
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 };
 
 #endif /* BOARD_H_ */

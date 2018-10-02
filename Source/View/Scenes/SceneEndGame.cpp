@@ -1,13 +1,10 @@
 #include "SceneEndGame.hpp"
 
 
-
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 SceneEndGame::SceneEndGame(std::shared_ptr<GameModel> gameModel)
 	: m_gameModelPtr(gameModel)
 {
-	//m_font.loadFromFile("Gobold Blocky Regular.otf");
-
 	m_winGame = false;
 	m_playAgain = false;
 
@@ -51,11 +48,11 @@ SceneEndGame::SceneEndGame(std::shared_ptr<GameModel> gameModel)
 
 	textExit.setPosition(textExitBegin_x, textExitBegin_y);
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 SceneEndGame::~SceneEndGame()
 {
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool SceneEndGame::isButtonClicked(int x_pos, int y_pos)
 {
 	if (x_pos >= m_buttonPlayAgain.getGlobalBounds().left && x_pos <= m_buttonPlayAgain.getGlobalBounds().left + m_buttonPlayAgain.getGlobalBounds().width
@@ -73,17 +70,17 @@ bool SceneEndGame::isButtonClicked(int x_pos, int y_pos)
 
 	return false;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void SceneEndGame::setGameScore(bool score)
 {
 	m_winGame = score;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 bool SceneEndGame::wantPlayAgain()
 {
 	return m_playAgain;
 }
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 void SceneEndGame::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(m_buttonPlayAgain, states);
@@ -106,3 +103,4 @@ void SceneEndGame::draw(sf::RenderTarget & target, sf::RenderStates states) cons
 
 	target.draw(scoreText, states);
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -7,6 +7,7 @@
 class SceneEndGame : public DrawableGroup
 {
 private:
+//-----------------------------------------------------------------------------
 	std::shared_ptr<GameModel> m_gameModelPtr;
 
 	bool m_winGame;
@@ -22,14 +23,19 @@ private:
 
 	sf::Text textPlayAgain;
 	sf::Text textExit;
-
+//-----------------------------------------------------------------------------
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 public:
+//-----------------------------------------------------------------------------
 	SceneEndGame(std::shared_ptr<GameModel> gameModel);
 	~SceneEndGame();
 
 	bool isButtonClicked(int x_pos, int y_pos);
 	void setGameScore(bool score);
 	bool wantPlayAgain();
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 };
 
