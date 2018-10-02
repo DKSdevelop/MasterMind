@@ -76,7 +76,7 @@ ScenePlayGame::ScenePlayGame(std::shared_ptr<GameModel> gameModel)
 	m_checkButton.setFillColor(sf::Color(89, 89, 89));
 	m_checkButton.setPosition(sf::Vector2f(m_choseGrill.getGlobalBounds().left + m_choseGrill.getGlobalBounds().width + 10, m_choseGrill.getGlobalBounds().top));
 
-	m_font.loadFromFile("Gobold Blocky Regular.otf");
+	//m_font.loadFromFile("Gobold Blocky Regular.otf");
 
 	buttonText.setFont(m_font);
 	buttonText.setCharacterSize(20);

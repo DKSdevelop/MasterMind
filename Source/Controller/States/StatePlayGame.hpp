@@ -2,10 +2,10 @@
 #include <algorithm>
 
 #include "StateHandler.hpp"
-#include "GameModel.hpp"
+#include "../../Model/GameModel.hpp"
 
-#include "ScenePlayGame.hpp"
-#include "StateEndGame.hpp"
+#include "../../View/Scenes/ScenePlayGame.hpp"
+#include "../../Controller/States/StateEndGame.hpp"
 
 class StatePlayGame : public StateHandler
 {

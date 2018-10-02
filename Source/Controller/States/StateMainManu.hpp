@@ -1,8 +1,8 @@
 #pragma once
 #include "StateHandler.hpp"
-#include "GameModel.hpp"
+#include "../../Model/GameModel.hpp"
 
-#include "SceneMainMenu.hpp"
+#include "../../View/Scenes/SceneMainMenu.hpp"
 
 class StateMainManu: public StateHandler
 {

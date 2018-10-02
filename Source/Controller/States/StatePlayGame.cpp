@@ -1,6 +1,6 @@
 #include "StatePlayGame.hpp"
 
-#include <iostream>
+//#include <iostream>
 
 StatePlayGame::StatePlayGame(std::shared_ptr<GameController> gameController)
 {

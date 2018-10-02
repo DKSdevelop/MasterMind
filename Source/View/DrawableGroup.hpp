@@ -9,6 +9,7 @@ class DrawableGroup: public sf::Drawable
 private:
 	std::vector<std::unique_ptr<sf::Drawable>> objectElements_;
 public:
+	sf::Font m_font;
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		for (auto& el : objectElements_)

@@ -1,6 +1,6 @@
 #pragma once
-#include "DrawableGroup.hpp"
-#include "GameModel.hpp"
+#include "../DrawableGroup.hpp"
+#include "../../Model/GameModel.hpp"
 
 
 class SceneMainMenu : public DrawableGroup
@@ -12,7 +12,7 @@ public:
 	int checkWhichButton(int x_pos, int y_pos);
 private:
 	std::shared_ptr<GameModel> m_gameModelPtr;
-	sf::Font m_font;
+	//sf::Font m_font;
 
 	std::vector<std::string> m_options{
 		"Start Game",

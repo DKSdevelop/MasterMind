@@ -1,7 +1,7 @@
 #pragma once
 
-#include "DrawableGroup.hpp"
-#include "GameModel.hpp"
+#include "../DrawableGroup.hpp"
+#include "../../Model/GameModel.hpp"
 
 class SceneHelp : public DrawableGroup
 {
@@ -12,7 +12,7 @@ public:
 	bool isButtonClicked(int x_pos, int y_pos);
 private:
 	std::shared_ptr<GameModel> m_gameModelPtr;
-	sf::Font m_font;
+	//sf::Font m_font;
 
 	int m_width;
 	int m_hight;

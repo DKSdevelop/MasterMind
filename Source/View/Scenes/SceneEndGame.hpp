@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 
-#include "DrawableGroup.hpp"
-#include "GameModel.hpp"
+#include "../DrawableGroup.hpp"
+#include "../../Model/GameModel.hpp"
 
 class SceneEndGame : public DrawableGroup
 {
@@ -15,7 +15,7 @@ public:
 	bool wantPlayAgain();
 private:
 	std::shared_ptr<GameModel> m_gameModelPtr;
-	sf::Font m_font;
+	//sf::Font m_font;
 
 	bool m_winGame;
 	bool m_playAgain;

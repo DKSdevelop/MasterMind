@@ -1,5 +1,5 @@
 #pragma once
-#include "GameController.hpp"
+#include "../GameController.hpp"
 
 #include <memory>
 

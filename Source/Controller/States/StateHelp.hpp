@@ -1,9 +1,9 @@
 #pragma once
 
 #include "StateHandler.hpp"
-#include "GameModel.hpp"
+#include "../../Model/GameModel.hpp"
 
-#include "SceneHelp.hpp"
+#include "../../View/Scenes/SceneHelp.hpp"
 
 class StateHelp: public StateHandler
 {

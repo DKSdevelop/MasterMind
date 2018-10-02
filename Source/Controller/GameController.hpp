@@ -5,10 +5,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "GameModel.hpp"
-#include "Peg.h"
+#include "../Model/GameModel.hpp"
+#include "../Model/GameElements/Peg.h"
 
-#include "DrawableGroup.hpp"
+#include "../View/DrawableGroup.hpp"
 
 class StateHandler;
 

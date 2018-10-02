@@ -1,6 +1,6 @@
 #include "GameController.hpp"
 
-#include "StateHandler.hpp"
+#include "../Controller/States/StateHandler.hpp"
 
 GameController::GameController()
 {

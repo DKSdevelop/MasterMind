@@ -1,6 +1,6 @@
 #pragma once
-#include "Board.h"
-#include "Subject.h"
+#include "GameElements\Board.h"
+#include "GameElements\Subject.h"
 #include <memory>
 
 class GameModel : public Subject

@@ -6,7 +6,7 @@
 SceneEndGame::SceneEndGame(std::shared_ptr<GameModel> gameModel)
 	: m_gameModelPtr(gameModel)
 {
-	m_font.loadFromFile("Gobold Blocky Regular.otf");
+	//m_font.loadFromFile("Gobold Blocky Regular.otf");
 
 	m_winGame = false;
 	m_playAgain = false;

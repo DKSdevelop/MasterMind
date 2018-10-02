@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-#include "DrawableGroup.hpp"
-#include "GameModel.hpp"
+#include "../DrawableGroup.hpp"
+#include "../../Model/GameModel.hpp"
 
 struct RectanglePlace
 {
@@ -73,7 +73,7 @@ private:
 	sf::RectangleShape m_choseGrill;
 
 	sf::RectangleShape m_checkButton;
-	sf::Font m_font;
+	//sf::Font m_font;
 	sf::Text buttonText;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
