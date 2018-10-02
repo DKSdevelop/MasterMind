@@ -19,14 +19,10 @@ private:
 //-----------------------------------------------------------------------------
 	std::shared_ptr<GameModel> m_gameModelPtr;
 
+	std::shared_ptr<int> m_currentRow;
+
 	sf::Vector2i m_selectedPlace;
 	int m_selectedColour;
-	std::vector<int> m_rowOfColours;
-
-	std::map<int, std::vector<sf::Vector2f>> m_mainPlaces;
-	std::map<int, std::vector<sf::Vector2f>> m_scorePlaces;
-
-	std::vector<RectanglePlace> m_colorsToChoosePlaces;
 
 	const int m_numOfRows = 12;
 	const int baseWidth = 200;
@@ -36,7 +32,8 @@ private:
 	const int baseThickness = 2;
 	const int baseR = baseWidth / 10;
 
-	std::vector<sf::Color> _playColors{
+	std::vector<sf::Color> m_ballsColours
+	{
 		sf::Color::Red,
 		sf::Color::Yellow,
 		sf::Color::Green,
@@ -44,16 +41,33 @@ private:
 		sf::Color(204, 51, 255),
 		sf::Color::Blue,
 		sf::Color::Cyan,
-		sf::Color::Green
+		sf::Color::Green,
+		sf::Color::Black
 	};
-
 	sf::RectangleShape m_mainGrill;
 	sf::RectangleShape m_scoreGrill;
 	sf::RectangleShape m_choseGrill;
 
+	std::vector<sf::RectangleShape> m_internalGrillLines;
+
 	sf::RectangleShape m_checkButton;
-	sf::Text buttonText;
+	sf::Text m_buttonText;
+
+	std::map<int, std::vector<sf::Vector2f>> m_mainPlaces;
+	//std::map<int, std::vector<sf::Vector2f>> m_scorePlaces;
+	std::vector<RectanglePlace> m_colorsToChoosePlaces;
+
+	std::vector<sf::CircleShape> m_coloursBalls;
+
+	std::vector<std::shared_ptr<sf::CircleShape>> m_selectedBalls;
+
+	std::map<int, std::vector<std::shared_ptr<sf::RectangleShape>>> m_scoreRectangles;
+	std::map<int, std::vector<std::shared_ptr<sf::CircleShape>>> m_pastBallsRows;
+
+	std::shared_ptr<sf::RectangleShape> m_colourMarker;
+	std::shared_ptr<sf::RectangleShape> m_currentRowMarker;
 //-----------------------------------------------------------------------------
+	void initialize();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -70,14 +84,15 @@ public:
 	bool isButtonClicked(int x_pos, int y_pos);
 
 	bool isPlaceSelected();
-	void chnageSelectedColour(int x_pos);
 	bool isRowOfColoursFilled();
 
 	void clearPlaceAndColours();
-	void clearRowOfColours();
+	void clearColourBallsRow();
 
 	void pushColourToRow();
 	std::vector<int> getRowOfColour();
+	void importScoreRow();
+	void importPastRow();
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 };

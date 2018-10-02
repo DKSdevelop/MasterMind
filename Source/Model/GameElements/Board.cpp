@@ -66,7 +66,7 @@ std::vector<Peg> Board::getVecOfPegsInShield() const
 	return m_vecOfPegsInShield;
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-int Board::getCurrentRow()
+int& Board::getCurrentRow()
 {
 	return m_currentRow;
 }

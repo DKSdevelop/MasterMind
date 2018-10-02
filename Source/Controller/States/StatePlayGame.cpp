@@ -46,13 +46,15 @@ void StatePlayGame::handleInput()
 						this->m_gameControllerPtr->pushState(std::make_shared<StateEndGame>(this->m_gameControllerPtr));
 						break;
 					}
-					this->m_scenePtr->clearRowOfColours();
+					this->m_scenePtr->importScoreRow();
+					this->m_scenePtr->importPastRow();
+					this->m_scenePtr->clearColourBallsRow();
 				}
 				this->m_scenePtr->clearPlaceAndColours();
 			}
 			else if (this->m_scenePtr->isColourGrill(cursorPosition.x, cursorPosition.y))
 			{
-				this->m_scenePtr->chnageSelectedColour(cursorPosition.x);
+				this->m_scenePtr->setSelectedColour(cursorPosition.x);
 			}
 			else if (this->m_scenePtr->isMainGrill(cursorPosition.x, cursorPosition.y))
 			{

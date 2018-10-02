@@ -31,7 +31,7 @@ public:
 	bool addPegInShield(Peg PegObj, int pegIndex);
 	std::vector<PegRow > getVecOfPegRows() const ;
 	std::vector<Peg> getVecOfPegsInShield() const;
-	int getCurrentRow();
+	int& getCurrentRow();
 	bool incraseCurrentRow();
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
