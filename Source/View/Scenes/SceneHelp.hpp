@@ -19,6 +19,9 @@ private:
 	std::string m_line;
 	std::ifstream m_file;
 	std::list<std::shared_ptr<sf::Text>> m_textList;
+
+	sf::Texture m_texture;
+	std::shared_ptr<sf::Sprite> m_example;
 //-----------------------------------------------------------------------------
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 //-----------------------------------------------------------------------------

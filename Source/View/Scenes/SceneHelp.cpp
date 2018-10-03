@@ -16,6 +16,8 @@ SceneHelp::SceneHelp(std::shared_ptr<GameModel> gameModel)
 	m_file.open("././Resources/Description.txt"); //Set your path here
 	if (m_file.is_open())
 	{
+		float i = 0;
+		float descriptionText_x = 0;
 		while (std::getline(m_file, m_line))
 		{
 			std::shared_ptr<sf::Text> m_descriptionText = std::make_shared<sf::Text>(sf::Text());
@@ -24,9 +26,21 @@ SceneHelp::SceneHelp(std::shared_ptr<GameModel> gameModel)
 			m_descriptionText->setFillColor(sf::Color::White);
 			//Getting every line of the .txt file and putting it in the 'line' string
 			m_descriptionText->setString(m_line);
+			sf::FloatRect boundings = m_descriptionText->getLocalBounds();
+			descriptionText_x = 1000 / 2 - m_width / 2 + (m_width - m_descriptionText->getLocalBounds().width) / 2;
+
+			m_descriptionText->setPosition(descriptionText_x, m_hight + 40 + i * (boundings.height + 5));
+			++i;
 			m_textList.push_back(m_descriptionText);
 		}
 	}
+
+	m_texture.loadFromFile("././Resources/Example2.JPG");
+
+	m_example = std::make_shared<sf::Sprite>(sf::Sprite(m_texture));
+	auto positionOfSprint = m_textList.back()->getPosition();
+	positionOfSprint.y += 50;
+	m_example->setPosition(positionOfSprint);
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 SceneHelp::~SceneHelp()
@@ -68,17 +82,11 @@ void SceneHelp::draw(sf::RenderTarget & target, sf::RenderStates states) const
 
 	target.draw(text, states);
 
-	float i = 0;
-	float descriptionText_x = 0;
 	for(auto& text : m_textList)
 	{
-		sf::FloatRect boundings = text->getLocalBounds();
-		descriptionText_x = 1000 / 2 - m_width / 2 + (m_width - text->getLocalBounds().width) / 2;
-
-		text->setPosition(descriptionText_x, m_button.getGlobalBounds().height + 40 + i * (boundings.height + 5));
-		++i;
-
 		target.draw(*text, states);
 	}
+
+	target.draw(*m_example, states);
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
