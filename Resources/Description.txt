@@ -1,0 +1,12 @@
+	Code maker(Computer) has created the secret code,
+the code breaker(Player) may place any combination
+of colored guess pegs on the first line of 4 peg holes.
+The code maker will use the Cyan(light blue) rectangle,
+which indicate each peg that is a correct color but
+wrong position, or a Green rectangle to indicate each peg
+is in a correct position and a right color. If neither
+are true,then no sign should be placed.The answer and
+guess pegs stay in their positions until the end of the game.
+
+	Play continues until the code is discovered or
+there are no remaining guesses (max 12).

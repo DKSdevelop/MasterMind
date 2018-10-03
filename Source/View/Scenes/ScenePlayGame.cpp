@@ -440,8 +440,8 @@ void ScenePlayGame::draw(sf::RenderTarget & target, sf::RenderStates states) con
 	{
 		float xPosition = m_mainPlaces.at(*m_currentRow).at(i).x;
 		float yPosition = m_mainPlaces.at(*m_currentRow).at(i).y;
-
 		m_selectedBalls.at(i)->setPosition(sf::Vector2f(xPosition + baseR / 4, yPosition + baseR / 4));
+
 		target.draw(*m_selectedBalls.at(i), states);
 	}
 
